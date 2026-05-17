@@ -1,0 +1,32 @@
+DIAGNÓSTICO Y REPORTE DE LIMPIEZA DE DATOS
+Dataset: Registro Administrativo AMIE (Histórico 2009-2024)
+
+1. Estado Inicial:
+La ingesta inicial del archivo arrojó un dataset con dimensiones de 290,310 filas y 104 columnas.
+Se identificó que la estructura de columnas contenía metadatos irrelevantes para el análisis requerido
+y nombres de atributos no estandarizados, incompatibles con buenas prácticas de bases de datos relacionales.
+
+2. Selección y Estandarización de Atributos:
+Para optimizar el rendimiento y garantizar la integridad en la base de datos SQL, se realizó una reducción
+de dimensionalidad técnica. De 104 variables, se aislaron las 16 columnas críticas para el negocio
+(geográficas, categóricas y métricas de población).
+
+Se aplicó un renombrado estandarizado para evitar errores de sintaxis en futuras consultas.
+
+3. Tratamiento de Valores Nulos:
+El análisis exploratorio reveló una alta concentración de valores nulos en las métricas de población estudiantil
+y docente, por lo que se aplicó un rellenado con valor cero (0) seguido de un casteo a tipo entero (int).
+Se asume lógicamente que la ausencia de reporte en estas columnas cuantitativas equivale a una población nula para
+ese registro específico.
+
+4. Eliminación de Duplicados e Integridad Matemática:
+Se forzó la unicidad de los registros utilizando una clave compuesta temporal (cod_amie + anio_lectivo), lo
+que resultó en la purga de 2 registros duplicados, y se recalculó la columna total_estudiantes comprobando que la
+suma de "estudiantes_f" y "estudiantes_m" coincidiera.
+
+No se encontraron discrepancias (0 inconsistencias), por lo que se sobrescribió el campo total para asegurar la
+integridad estructural a nivel de vector.
+
+5. Estado Final y Exportación:
+El dataset finalizado cuenta con 290,308 registros estrictamente validados y 16 columnas. Los datos fueron exportados
+de manera exitosa mediante el motor SQLAlchemy hacia una base de datos relacional SQLite (amie_mineduc.db).
