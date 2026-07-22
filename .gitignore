@@ -1,0 +1,14 @@
+# Entornos y compilados
+venv/
+env/
+__pycache__/
+*.py[cod]
+.directory
+System Volume Information/
+
+# Archivos de datos masivos
+*.csv
+*.sql
+*.sqlite3
+*.db
+datos_macroentorno/

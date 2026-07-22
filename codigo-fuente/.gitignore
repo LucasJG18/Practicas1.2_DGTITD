@@ -1,0 +1,25 @@
+# Entornos virtuales (No subir porque pesan mucho y dependen de cada PC)
+venv/
+env/
+.venv/
+
+# Archivos temporales y compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Variables de entorno y secretos (Donde van las contraseñas de la BD)
+.env
+.env.local
+
+# Archivos masivos de datos (Evitar que GitHub explote por el límite de 100MB)
+*.sql
+*.sqlite3
+*.db
+RPA/tab_consolidado_supercias.sql
+RPA/supercias_limpio.csv
+data/INEC/5.1.csv
+
+# Archivos de logs y Prefect
+*.log
+prefect.db
