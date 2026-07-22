@@ -48,7 +48,7 @@ Siga secuencialmente los siguientes pasos para configurar el entorno y ejecutar 
 Descargue el código fuente en su estación de trabajo y navegue hacia el directorio principal de ejecución.
 
 ```bash
-git clone <URL_DE_SU_REPOSITORIO>
+git clone https://github.com/LucasJG18/Practicas1.2_DGTITD.git
 cd repositorio-del-proyecto/codigo-fuente
 ```
 

@@ -11,4 +11,6 @@ System Volume Information/
 *.sql
 *.sqlite3
 *.db
+*.xlsx
+*.zip
 datos_macroentorno/
