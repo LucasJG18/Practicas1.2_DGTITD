@@ -13,19 +13,21 @@ En estricto cumplimiento con las directrices de la DGTITD, el repositorio mantie
 ```text
 Practicas1.2_DGTITD/
 ├── 01_Historico/                   # Respaldos y entregables de fases iniciales (Reto 1)
+├── documentacion/
+│   └── presentaciones/             # Archivos de presentación de sustentación final
 ├── articulo/
 │   └── version-final/              # Documento técnico final (Formato IEEE)
 ├── codigo-fuente/
-│   └── src/                        # Entorno principal de ejecución
-│       ├── Arquitectura/           # Diagramas y referencias de la arquitectura
-│       ├── ETL/                    # Scripts de extracción (BCE, INEC, MINEDUC, etc.)
-│       ├── Limpieza/               # Módulos de normalización y estandarización
-│       ├── RPA/                    # Algoritmos de procesamiento masivo por lotes (Chunks)
-│       ├── tests/                  # Pruebas unitarias de integridad y dependencias
-│       ├── pipeline.py             # Orquestador maestro del flujo de datos (Prefect)
-│       └── requirements.txt        # Dependencias oficiales del entorno de Python
-└── documentacion/
-    └── presentaciones/             # Archivos de presentación de sustentación final
+│   ├── src/                        # Entorno principal de ejecución (Scripts y Orquestador)
+│   │   ├── Arquitectura/           # Diagramas y referencias de la arquitectura
+│   │   ├── ETL/                    # Scripts de extracción (BCE, INEC, MINEDUC, etc.)
+│   │   ├── Limpieza/               # Módulos de normalización y estandarización
+│   │   ├── RPA/                    # Algoritmos de procesamiento masivo por lotes
+│   │   ├── tests/                  # Pruebas unitarias de integridad y dependencias
+│   │   └── pipeline.py             # Orquestador maestro del flujo de datos (Prefect)
+│   ├── .gitignore                  # Reglas de exclusión de control de versiones
+│   └── requirements.txt            # Dependencias oficiales del entorno de Python
+└── README.md                       # Documentación técnica y despliegue (Este archivo)
 ```
 
 > **Nota:** Los directorios de bases de datos locales, entornos virtuales y volcados de información cruda se excluyen mediante `.gitignore` por motivos de seguridad y límites de almacenamiento.
@@ -48,11 +50,11 @@ Siga secuencialmente los siguientes pasos para configurar el entorno y ejecutar 
 
 ## 1. Clonar el repositorio
 
-Descargue el código fuente y navegue hacia el directorio principal del proyecto.
+Descargue el código fuente y navegue hacia el directorio del proyecto.
 
 ```bash
 git clone https://github.com/LucasJG18/Practicas1.2_DGTITD.git
-cd Practicas1.2_DGTITD/codigo-fuente/src
+cd Practicas1.2_DGTITD/codigo-fuente
 ```
 
 ---
@@ -105,9 +107,10 @@ practicum_db
 
 El proyecto utiliza **Prefect** como orquestador del flujo de datos.
 
-Desde el directorio `src/`, ejecute:
+Desde el directorio `codigo-fuente`, navegue a `src/` y ejecute:
 
 ```bash
+cd src
 python pipeline.py
 ```
 
