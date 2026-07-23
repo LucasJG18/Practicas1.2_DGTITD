@@ -49,7 +49,7 @@ Descargue el código fuente en su estación de trabajo y navegue hacia el direct
 
 ```bash
 git clone https://github.com/LucasJG18/Practicas1.2_DGTITD.git
-cd repositorio-del-proyecto/codigo-fuente
+cd Practicas1.2_DGTITD/codigo-fuente
 ```
 
 ---
